@@ -21,7 +21,22 @@ Route::get('/', function () {
 
 
 Route::get('volunteer', function(){
-  return view('volunteers.form');
+    //return(App\volunteer::find(1));
+
+    $volunteer =  new App\Volunteer;
+
+    $volunteer->name='Lucas';
+    $volunteer->phone = null;
+    $volunteer->email='lucas@treinaweb.com.br';
+    $volunteer->save();
+
+    return $volunteer;
+
+
+
+
+  
+  //return view('volunteers.form');
 });
 
 Route::post('volunteer', ['as' => 'volunteer.send', function(){
