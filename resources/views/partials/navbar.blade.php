@@ -14,6 +14,8 @@
         <li class="active"><a href="#">Home</a></li>
         <li><a href="<?= route('sobre') ?>">Sobre</a></li>
         <li><a href="<?= route('contato') ?>">Contato</a></li>
+        <li><a href="<?= route('contato') ?>">Contato</a></li>
+        <li><a href="<?= route('volunteer.index') ?>">Voluntarios</a></li>
     </ul>
     </div><!--/.nav-collapse -->
 </div>

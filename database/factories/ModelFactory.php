@@ -11,10 +11,24 @@
 |
 */
 
-$factory->define(App\Volunteer::class, function (Faker\Generator $faker) {
+$fakerBr = Faker\Factory::create('pt_BR'); 
+
+$factory->define(App\User::class, function ($faker) {
     return [
         'name' => $faker->name,
-        'phone' => $faker->phoneNumber,
         'email' => $faker->email,
+        'password'=>str_random(10),
+        'remember_token'=>str_random(10),
+                
+    ];
+});
+
+
+$factory->define(App\Volunteer::class, function ($faker) use($fakerBr) {
+    return [
+        'name' => $fakerBr->name,
+        'phone' => $fakerBr->phoneNumber,
+        'email' => $fakerBr->email
+                
     ];
 });

@@ -12,10 +12,10 @@
     @endforeach
     </ul>
     <br>
-    $i=10;
+    {{$i=10}}
     <ul>
-    @for ($i = 0; $i < 10; $i++)
-      <li>O valor atual é {{ $i }} </li>
+    @for ($f = 0; $f < $i; $f++)
+      <li>O valor atual é {{ $f }} </li>
    </ul>
 @endfor
   </body>

@@ -11,7 +11,7 @@ class NomeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('volunteers')->truncate();
+        //DB::table('volunteers')->truncate();
         factory(App\Volunteer::class, 30)->create();
 /*      
 

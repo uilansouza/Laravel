@@ -19,12 +19,52 @@ Route::get('/', function () {
 
 });
 
+/*--- Aqui começa a rota dos controllers *-----*/
 
+
+Route::resource('volunteer','VolunteersController');
+
+/*
 Route::get('volunteer', function(){
     //return(App\volunteer::find(1));
 
-    $volunteer =  new App\Volunteer;
+    //$volunteer =  new App\Volunteer;
 
+    //$volunteer = App\Volunteer::findorfail($id); procura um Id ou exibe erro
+
+    //all() traz tudo
+/*
+    $volunteer =   App\Volunteer::where('name','Lucas')->get();
+
+
+    return $volunteer; */
+    
+    //dd(App\Volunteer::find(1));  Procura o Id 1
+
+    /************** ALTERAÇÃO NO BANCO DE DADOS *******
+    $volunteer = App\Volunteer::find(1);
+    $volunteer->phone='11 950369882';
+    $volunteer->save();
+    return $volunteer;
+    **************************************************/
+
+    
+
+
+    /*
+    ***** ELOQUENT***** 
+    Blinda a aplicação de inserções manuais no banco de dados
+    
+    $volunteer = App\Volunteer::create([
+      'name'=>'Andre',
+      'phone'=>'12 9091-7090',
+      'email'=> 'andre@treinaweb.com.br',
+      'update_at'=>'2013-01-01-00:00:00'
+
+    ]); */
+
+   
+/* Mesmo efeito dessse de baixo 
     $volunteer->name='Lucas';
     $volunteer->phone = null;
     $volunteer->email='lucas@treinaweb.com.br';
@@ -33,12 +73,13 @@ Route::get('volunteer', function(){
     return $volunteer;
 
 
-
+*/
 
   
   //return view('volunteers.form');
-});
 
+
+/*
 Route::post('volunteer', ['as' => 'volunteer.send', function(){
   return Request::all();
 }]);
@@ -47,7 +88,7 @@ Route::post('volunteer', ['as' => 'volunteer.send', function(){
 
 
 
-  /*
+  /*  Prefixo, isso vai antes do nome...
 Route::group(['prefix'=>'intitucional'],function(){
 
     Route::get('sobre',['as'=>'sobre','uses'=>'InstitucionalController@sobre']);
@@ -58,6 +99,10 @@ Route::group(['prefix'=>'intitucional'],function(){
 
     Route::post('contato',['as'=>'contato.send','uses'=>'InstitucionalController@sobreenviado']);
 });
+*/
+/*
+Route::resource('rest','RestfulController');
+
 
 Route::get('lista', function(){
 
@@ -76,10 +121,10 @@ Route::controllers([
   'password' => 'Auth\PasswordController',
 ]);
 
-//Route::get('/teste', function(){
-  //  return 'TreinaWeb';
- // });
-  
+Route::get('/teste', function(){
+    return 'Ola Uilan';
+  });
+*/  
 
   /*
   Route::get('inicio/{nome}', function($nome){
@@ -99,12 +144,13 @@ Route::controllers([
         return "Essa Pagina nao existe";
       });
 
-  
+  Opciona usamos o trecho abaixo a partir do inicio/
   Route::get('inicio/{nome?}', function($nome = 'Aluno'){
     return "Bem vindo, $nome!";
-  });
-
+  }); 
   
+
+  //Aceita apenas Letras,caso seja enviado numeros sera dado
   Route::get('inicio/{nome?}', function($nome = 'Aluno'){
     return "Bem vindo, $nome!";
   })->where('nome', '[A-Za-z]+');
@@ -115,15 +161,15 @@ Route::get('inicio/{nome}', ['as' => 'home' ,function($nome){
   }]);
 
   */
-
-/*
+  /*
+  
   Route::get('inicio/{nome?}', function($nome = 'Aluno'){
     return view('inicio', ['nome' => $nome]);
      /* Variações
      * return view('inicio')->with('nome', $nome);
      * return view('inicio')->with(['nome' => $nome]);
-     * return view('inicio')->withName($nome);
-     
+     * return view('inicio')->withName($nome);*/
+     /*
   })->where('nome', '[A-Za-z]+');
-
-  */
+  
+*/

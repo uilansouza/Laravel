@@ -24,7 +24,15 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
-        //
+        //$router->model('volunteer','App\Volunteer'); -> procura pelo ID
+        $router->bind('volunteer',function($value){ //-->colocou  o bind no começo
+            return \App\Volunteer::where('id',$value)->first();//-> nesse caso procura por email, mas pode mudar o metodo de procura
+        });
+
+
+
+       // $route->model('URL da rota','Classe do Model')
+
 
         parent::boot($router);
     }
