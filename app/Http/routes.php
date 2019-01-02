@@ -23,7 +23,8 @@ Route::get('/', function () {
 
 
 Route::resource('volunteer','VolunteersController');
-
+Route::resource('cause', 'CausesController');
+Route::resource('institution', 'InstitutionsController');
 /*
 Route::get('volunteer', function(){
     //return(App\volunteer::find(1));

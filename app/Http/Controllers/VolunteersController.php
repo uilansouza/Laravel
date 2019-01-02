@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Volunteer;
+use App\Institution;
 use App\Http\Requests\VolunterRequest;
 
 class VolunteersController extends Controller
@@ -18,7 +19,7 @@ class VolunteersController extends Controller
      */
     public function index()
     {
-       $volunteers =  Volunteer::simplepaginate(10);
+       $volunteers =  Volunteer::paginate(10);
        
        return view('volunteers.index',compact('volunteers'));
     }
@@ -41,13 +42,28 @@ class VolunteersController extends Controller
      */
     public function store(VolunterRequest $request)
     {
+       
 
           //O VolunterRequest ja faz a validação de formulário, por isso nao utilizamos a sintaxe abaixo
         //$this->validate($request,Volunter::$rules); // valida os campos
 
-        Volunteer::create($request->all());
+        $volunteer = Volunteer::create($request->all());
 
-        redirect()->route('volunteer.index');
+        $volunteer = $this->setVolunteerRelations($volunteer, $request);
+       
+     
+       
+        /**
+         * Para persistir as alterações, verifique:
+         * - Método de relação do Model hasOne/hasMany : relation()->save($model)
+         * - Método de relação do Model belongsTo      : relation()->associative($model)
+         */
+       
+       
+
+             $volunteer->save();
+
+          return redirect()->route('volunteer.index');
     }
 
     /**
@@ -93,6 +109,10 @@ class VolunteersController extends Controller
        // $volunteer = Volunteer::findOrFail($id);
 
         $volunteer->update($request->all());
+        $volunteer = $this->setVolunteerRelations($volunteer, $request);
+
+      
+        $volunteer->save();
 
         return redirect()->route('volunteer.index');
     }
@@ -110,5 +130,13 @@ class VolunteersController extends Controller
         $volunteer->delete();
 
         return redirect()->route('volunteer.index');
+    }
+    private function setVolunteerRelations(Volunteer $volunteer, Request $request)
+    {
+        $institution = Institution::findOrFail($request->institution_id);
+        $volunteer->institution()->associate($institution);
+        $volunteer->causes()->sync($request->causes_list);
+        
+        return $volunteer;
     }
 }

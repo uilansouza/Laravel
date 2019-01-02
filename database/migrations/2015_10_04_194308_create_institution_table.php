@@ -3,7 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVolunteersTable extends Migration
+class CreateInstitutionTable extends Migration
+     
 {
     /**
      * Run the migrations.
@@ -12,8 +13,11 @@ class CreateVolunteersTable extends Migration
      */
     public function up()
     {
-        Schema::create('volunteers', function (Blueprint $table) {
+        Schema::create('institution', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('address');
+            $table->string('city');
             $table->timestamps();
         });
     }
@@ -25,6 +29,6 @@ class CreateVolunteersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('volunteers');
+        Schema::drop('institution');
     }
 }

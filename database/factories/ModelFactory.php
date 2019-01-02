@@ -28,7 +28,18 @@ $factory->define(App\Volunteer::class, function ($faker) use($fakerBr) {
     return [
         'name' => $fakerBr->name,
         'phone' => $fakerBr->phoneNumber,
-        'email' => $fakerBr->email
+        'email' => $fakerBr->email,
+        'institution_id'=>App\Institution::all()->random()->id,
+
                 
+    ];
+});
+
+$factory->define(App\Institution::class, function ($faker){
+    return [
+        'name'=>$faker->company,
+        'addres'=>$faker->streetAddress,
+        'city'=>$faker->city
+
     ];
 });

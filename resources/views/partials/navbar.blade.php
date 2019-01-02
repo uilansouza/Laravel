@@ -11,11 +11,11 @@
     </div>
     <div id="navbar" class="collapse navbar-collapse">
     <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        <li class="active"><a href="<?= route('volunteer.index') ?>">Home</a></li>
         <li><a href="<?= route('sobre') ?>">Sobre</a></li>
         <li><a href="<?= route('contato') ?>">Contato</a></li>
-        <li><a href="<?= route('contato') ?>">Contato</a></li>
-        <li><a href="<?= route('volunteer.index') ?>">Voluntarios</a></li>
+        <li><a href="{{ route('cause.index') }}">Causas</a></li>
+        <li><a href="{{ route('institution.index') }}">Instituições</a></li>
     </ul>
     </div><!--/.nav-collapse -->
 </div>

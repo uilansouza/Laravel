@@ -9,6 +9,12 @@ use App\Http\Controllers\Controller;
 
 class InstitucionalController extends Controller
 {
+    public function __construct(){
+        
+      
+        $this->middleware('age', ['except' => ['getSobre']]);
+    }
+
     public function getSobre (){
         
         return view('sobre');

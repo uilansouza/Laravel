@@ -28,7 +28,7 @@
           </div>
       @endif  
 
-    @yield('container');
+    @yield('container')
 
     </div><!-- /.container -->
     
