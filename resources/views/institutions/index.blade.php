@@ -17,8 +17,10 @@
 @foreach($institutions as $institution)
 
 
+
 <tr>
 	<td><a href="{{ route('institution.show', $institution->id) }}">{{$institution->name}}</a></td>
+	
 	<td>{{$institution->address}}</td>
 	<td>{{$institution->city}}</td>
 	<td>

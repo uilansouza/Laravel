@@ -53,7 +53,8 @@ class InstitutionsController extends Controller
      */
     public function show(Institution $institution)
     {
-        return view('institutions.show')->with('institution', $institution);
+        //return view('institutions.show')->with('institution', $institution);
+        return view('institutions.show',compact('institution'));
     }
 
     /**

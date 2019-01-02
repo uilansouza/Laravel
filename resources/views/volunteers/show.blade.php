@@ -3,6 +3,8 @@
 @section('title', 'Detalhes')
 
 @section('container')
+<?php dd($volunteer->id); ?>
+teste
 
 <h1>Dados dos Voluntarios </h1>
  <p><strong>Nome:</strong> {{$volunteer->name}}</p>

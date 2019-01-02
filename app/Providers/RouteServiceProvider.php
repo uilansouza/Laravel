@@ -28,6 +28,8 @@ class RouteServiceProvider extends ServiceProvider
         $router->bind('volunteer',function($value){ //-->colocou  o bind no começo
             return \App\Volunteer::where('id',$value)->first();//-> nesse caso procura por email, mas pode mudar o metodo de procura
         });
+        $router->model('cause', 'App\Cause');
+        $router->model('institution', 'App\Institution');
 
 
 
