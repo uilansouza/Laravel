@@ -7,7 +7,7 @@
 <h2>Detalhes da Instituição</h2>
 
 <p><b>Nome:</b> {{$institution->name}}</p>
-<p><b>Endereço:</b> {{$institution->addres}}</p>
+<p><b>Endereço:</b> {{$institution->address}}</p>
 <p><b>Cidade:</b> {{$institution->city}}</p>
 
 @unless($institution->volunteers->isEmpty())
