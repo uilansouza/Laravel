@@ -25,6 +25,15 @@ Route::get('/', function () {
 Route::resource('volunteer','VolunteersController');
 Route::resource('cause', 'CausesController');
 Route::resource('institution', 'InstitutionsController');
+
+// Authentication routes...
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+// Registration routes...
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
 /*
 Route::get('volunteer', function(){
     //return(App\volunteer::find(1));
