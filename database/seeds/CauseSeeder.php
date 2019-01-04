@@ -12,12 +12,13 @@ class CauseSeeder extends Seeder
     public function run()
     {
         $causes = [
-            'Meio Ambiente',
-            'Animais',
-            'Elefantes',
-            'Patrimonio Histórico',
-            'Crianças',
-            'Ensino de Adultos'
+           ['cause' => 'Meio Ambiente', 'user_id' => 1],
+           ['cause' => 'Animais', 'user_id' => 1],
+           ['cause' => 'Elefantes', 'user_id' => 1],
+           ['cause' => 'Patrimonio Histórico', 'user_id' => 2],
+           ['cause' => 'Patrimonio Histórico', 'user_id' => 2],
+           ['cause' => 'Crianças', 'user_id' => 2],
+           ['cause' => 'Ensino de Adultos', 'user_id' => 2],
         ];
         
         foreach($causes as $cause)

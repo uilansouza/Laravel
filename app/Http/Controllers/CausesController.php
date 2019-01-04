@@ -45,6 +45,10 @@ class CausesController extends Controller
      */
     public function store(CauseRequest $request)
     {
+        if($request->user()->cannot('create-cause'))
+        {
+            dd('não pode criar');
+        }
         Cause::create($request->all());
         
         return redirect()->route('cause.index');
@@ -81,6 +85,10 @@ class CausesController extends Controller
      */
     public function update(CauseRequest $request, Cause $cause)
     {
+        if(\Gate::denies('update-cause', $cause))
+        {
+            dd('Voce nao tem acesso');
+        }
         $cause->update($request->all());
         
         $cause->save();
