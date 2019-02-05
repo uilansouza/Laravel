@@ -64,10 +64,10 @@ return [
 
         's3' => [
             'driver' => 's3',
-            'key'    => 'your-key',
-            'secret' => 'your-secret',
-            'region' => 'your-region',
-            'bucket' => 'your-bucket',
+            'key'    => 'AKIAJFDXBCHT5ZEEDD3Q',
+            'secret' => '4lzIuV6+MemqgDSsDs+7Kj3i1JICyA181+E9Ldhu',
+            'region' => 'sa-east-1',
+            'bucket' => 'uil-treinaweb',
         ],
 
         'rackspace' => [

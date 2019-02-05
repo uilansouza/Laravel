@@ -3,7 +3,12 @@
 
 
 Route::get('/', function () {
-        return view('welcome');
+
+        //Storage::disk('s3')->put('hello.txt','Treinaweb');
+        Storage::put('teste.txt','treinaweb');
+        //return view('welcome');
+        return 'ok';
+
   });
 
   //-------------------------//

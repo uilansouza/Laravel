@@ -45,7 +45,7 @@ class CausesController extends Controller
      */
     public function store(CauseRequest $request)
     {
-        if($request->user()->cannot('create-cause'))
+        if($request->user()->cannot('create', new Cause))
         {
             dd('não pode criar');
         }
@@ -85,7 +85,7 @@ class CausesController extends Controller
      */
     public function update(CauseRequest $request, Cause $cause)
     {
-        if(\Gate::denies('update-cause', $cause))
+        if(\Gate::denies('update', $cause))
         {
             dd('Voce nao tem acesso');
         }
